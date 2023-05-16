@@ -1,7 +1,5 @@
 package com.groupe2.rent.model;
 
-import java.util.Calendar;
-
 public class User {
     private int id;
     private String lastName;
