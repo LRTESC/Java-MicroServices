@@ -1,8 +1,6 @@
 package com.groupe2.rent.web.controller;
 import com.groupe2.rent.model.User;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.desktop.UserSessionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> list() {
+    public List<User> findAll() {
         return listUser;
     }
 
@@ -35,9 +33,10 @@ public class UserController {
         return null ;
     }
     @PutMapping( "/users/{id}")
-    public String update(@PathVariable int id) {
-        return "user " + id + " updated";
+    public String update() {
+        return "user updated";
     }
+
 
     @PostMapping("/users/")
     public String create() {
