@@ -1,10 +1,14 @@
 package com.groupe2.rent.web.controller;
 import com.groupe2.rent.model.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Api("API pour les operations CRUD sur les users.")
+
 public class UserController {
     private List<User> listUser;
 
@@ -17,7 +21,7 @@ public class UserController {
         listUser.add(user2);
         listUser.add(user3);
     }
-
+    @ApiOperation(value = "Récupère une liste de tous les users")
     @GetMapping("/users")
     public List<User> findAll() {
         return listUser;
