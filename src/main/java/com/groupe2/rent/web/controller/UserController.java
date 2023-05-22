@@ -1,8 +1,10 @@
 package com.groupe2.rent.web.controller;
+
 import com.groupe2.rent.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,12 @@ public class UserController {
 
 
     @PostMapping("/users/")
-    public String create() {
-        return "user created";
+    public void  create(@RequestBody User user) {
+        RestTemplate restTemplate = new RestTemplate();
+        Boolean result = restTemplate.getForObject("http://localhost:8081/licenses/{id}", Boolean.class, user.getLicenceNumber());
+        if (result){
+            listUser.add(user);
+        }
     }
 
     @DeleteMapping( "/users/{id}")
