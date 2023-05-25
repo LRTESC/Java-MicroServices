@@ -1,18 +1,27 @@
 package com.groupe2.rent.model;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
+
+@Entity
+public class RentUser {
+    @Id
     private int id;
     private String lastName;
     private String firstName;
-    private String birthDate;
+    private Date birthDate;
     private String licenceNumber;
 
-    public User(int id, String lastName, String firstName, String birthDate, String licenceNumber) {
+    public RentUser(int id, String lastName, String firstName, Date birthDate, String licenceNumber) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
         this.birthDate = birthDate;
         this.licenceNumber = licenceNumber;
+    }
+
+    public RentUser() {
     }
 
 
@@ -40,11 +49,11 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -67,5 +76,8 @@ public class User {
                 '}';
     }
 }
+
+
+
 
 
